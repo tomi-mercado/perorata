@@ -15,7 +15,9 @@ export const ToggleButton = ({
   const toggleDarkMode = async () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
-    document.body.classList.toggle("dark", newMode);
+    document
+      .getElementById("dark-mode-provider")
+      ?.classList.toggle("dark", newMode);
     await updateCookie("darkMode", newMode);
   };
 
