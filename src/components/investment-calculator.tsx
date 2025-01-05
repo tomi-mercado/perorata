@@ -11,20 +11,26 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArrowUpIcon, DollarSignIcon, PercentIcon } from "lucide-react";
 import { useState } from "react";
+import { Switch } from "./ui/switch";
 
 export default function InvestmentCalculator() {
-  const [initialInvestment, setInitialInvestment] = useState(1200);
-  const [yearlyContribution, setYearlyContribution] = useState(1200);
-  const [years, setYears] = useState(10);
-  const [interestRate, setInterestRate] = useState(2);
+  const [initialInvestment, setInitialInvestment] = useState(1000);
+  const [contribution, setContribution] = useState(100);
+  const [contributionType, setContributionType] = useState<"monthly" | "anual">(
+    "monthly"
+  );
+  const [years, setYears] = useState(25);
+  const [interestRate, setInterestRate] = useState(6);
 
   const calculateInvestment = () => {
     let capital = initialInvestment;
     let totalInvested = initialInvestment;
 
     for (let i = 0; i < years; i++) {
-      capital += yearlyContribution;
-      totalInvested += yearlyContribution;
+      const realContribution =
+        contribution * (contributionType === "monthly" ? 12 : 1);
+      capital += realContribution;
+      totalInvested += realContribution;
       capital += capital * (interestRate / 100);
     }
 
@@ -48,6 +54,8 @@ export default function InvestmentCalculator() {
       maximumFractionDigits: 0,
     }).format(value);
   };
+
+  console.log({ results });
 
   return (
     <div className="container mx-auto p-4">
@@ -74,17 +82,29 @@ export default function InvestmentCalculator() {
                   className="text-lg"
                 />
               </div>
+              <div className="flex items-center space-x-2">
+                <Label htmlFor="contributionType">Contribución Mensual</Label>
+                <Switch
+                  id="contributionType"
+                  checked={contributionType === "anual"}
+                  onCheckedChange={() => {
+                    setContributionType(
+                      contributionType === "monthly" ? "anual" : "monthly"
+                    );
+                  }}
+                />
+                <Label htmlFor="contributionType">Contribución Anual</Label>
+              </div>
               <div className="space-y-2">
                 <Label htmlFor="yearlyContribution">
-                  Contribución anual ($)
+                  Contribución{" "}
+                  {contributionType === "monthly" ? "mensual" : "anual"} ($)
                 </Label>
                 <Input
                   id="yearlyContribution"
                   type="number"
-                  value={yearlyContribution}
-                  onChange={(e) =>
-                    setYearlyContribution(Number(e.target.value))
-                  }
+                  value={contribution}
+                  onChange={(e) => setContribution(Number(e.target.value))}
                   min="0"
                   className="text-lg"
                 />
@@ -158,7 +178,9 @@ export default function InvestmentCalculator() {
                       Profit (%)
                     </p>
                     <p className="text-xl font-bold text-orange-600 dark:text-orange-400">
-                      {results.profitPercentage.toFixed(2)}%
+                      {isNaN(results.profitPercentage)
+                        ? "-"
+                        : `${results.profitPercentage.toFixed(2)}%`}
                     </p>
                   </div>
                   <PercentIcon className="w-5 h-5 text-orange-500 mt-2" />
