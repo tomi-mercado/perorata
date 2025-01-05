@@ -55,8 +55,6 @@ export default function InvestmentCalculator() {
     }).format(value);
   };
 
-  console.log({ results });
-
   return (
     <div className="container mx-auto p-4">
       <Card className="w-full max-w-3xl mx-auto">
