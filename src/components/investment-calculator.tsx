@@ -116,13 +116,13 @@ export default function InvestmentCalculator() {
 
             <div className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-indigo-900 dark:to-indigo-400 p-6 rounded-lg shadow-inner space-y-4">
               <h3 className="text-xl font-semibold text-center mb-4">
-                Investment Results
+                Resultados
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex flex-col justify-between">
                   <div>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      Total Invested
+                      Total Invertido
                     </p>
                     <p className="text-xl font-bold text-blue-600 dark:text-blue-400 break-words">
                       {formatCurrency(results.totalInvested)}
@@ -133,7 +133,7 @@ export default function InvestmentCalculator() {
                 <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex flex-col justify-between">
                   <div>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      Final Capital
+                      Capital Final
                     </p>
                     <p className="text-xl font-bold text-green-600 dark:text-green-400 break-words">
                       {formatCurrency(results.finalCapital)}
@@ -144,7 +144,7 @@ export default function InvestmentCalculator() {
                 <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex flex-col justify-between">
                   <div>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      Total Profit
+                      Profit ($)
                     </p>
                     <p className="text-xl font-bold text-purple-600 dark:text-purple-400 break-words">
                       {formatCurrency(results.totalProfit)}
@@ -155,7 +155,7 @@ export default function InvestmentCalculator() {
                 <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex flex-col justify-between">
                   <div>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      Profit Percentage
+                      Profit (%)
                     </p>
                     <p className="text-xl font-bold text-orange-600 dark:text-orange-400">
                       {results.profitPercentage.toFixed(2)}%
