@@ -54,19 +54,17 @@ export default function InvestmentCalculator() {
       <Card className="w-full max-w-3xl mx-auto">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">
-            Investment Growth Calculator
+            Calculadora de inversión
           </CardTitle>
           <CardDescription className="text-center">
-            Watch your investment grow in real-time
+            Calcula cuánto dinero tendrás en el futuro si inviertes hoy
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="initialInvestment">
-                  Initial Investment ($)
-                </Label>
+                <Label htmlFor="initialInvestment">Inversión inicial ($)</Label>
                 <Input
                   id="initialInvestment"
                   type="number"
@@ -78,7 +76,7 @@ export default function InvestmentCalculator() {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="yearlyContribution">
-                  Yearly Contribution ($)
+                  Contribución anual ($)
                 </Label>
                 <Input
                   id="yearlyContribution"
@@ -92,7 +90,7 @@ export default function InvestmentCalculator() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="years">Investment Period (Years)</Label>
+                <Label htmlFor="years">Período de inversión (años)</Label>
                 <Input
                   id="years"
                   type="number"
@@ -103,7 +101,7 @@ export default function InvestmentCalculator() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="interestRate">Annual Interest Rate (%)</Label>
+                <Label htmlFor="interestRate">Tasa de interés anual (%)</Label>
                 <Input
                   id="interestRate"
                   type="number"
