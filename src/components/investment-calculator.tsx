@@ -114,7 +114,7 @@ export default function InvestmentCalculator() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900 dark:to-indigo-950 p-6 rounded-lg shadow-inner space-y-4">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-indigo-900 dark:to-indigo-400 p-6 rounded-lg shadow-inner space-y-4">
               <h3 className="text-xl font-semibold text-center mb-4">
                 Investment Results
               </h3>
